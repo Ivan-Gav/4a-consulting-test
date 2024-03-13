@@ -1,5 +1,77 @@
+@font-face {
+  font-family: "PT Root UI";
+  src: url("./assets/fonts/subset-PTRootUI-Bold.woff2") format("woff2"),
+    url("./assets/fonts/subset-PTRootUI-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PT Root UI";
+  src: url("./assets/fonts/subset-PTRootUI-Medium.woff2") format("woff2"),
+    url("./assets/fonts/subset-PTRootUI-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PT Root UI";
+  src: url("./assets/fonts/subset-PTRootUI-Regular.woff2") format("woff2"),
+    url("./assets/fonts/subset-PTRootUI-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bebas Neue Cyrillic";
+  src: url("./assets/fonts/BebasNeueCyrillic.woff2") format("woff2"),
+    url("./assets/fonts/BebasNeueCyrillic.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bebas Neue";
+  src: url("./assets/fonts/BebasNeue-Regular.woff2") format("woff2"),
+    url("./assets/fonts/BebasNeue-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("./assets/fonts/subset-Rubik-Bold.woff2") format("woff2"),
+    url("./assets/fonts/subset-Rubik-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("./assets/fonts/subset-Rubik-Medium.woff2") format("woff2"),
+    url("./assets/fonts/subset-Rubik-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --font-family: "PT Root UI", sans-serif;
+  --second-family: "Bebas Neue Cyrillic", sans-serif;
+  --third-family: "Rubik", sans-serif;
+  --font3: "Bebas Neue", sans-serif;
+
+  font-family: var(--font-family);
+  font-weight: normal;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
