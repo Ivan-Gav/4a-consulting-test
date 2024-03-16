@@ -1,0 +1,90 @@
+.section {
+  display: flex;
+  justify-content: center;
+  align-items:flex-start;
+  margin-top: 94px;
+  gap: 78px;
+}
+
+.plans {
+  max-width: 585px;
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 261px 125px;
+  grid-template-areas:
+    "crd1 crd2 crd3"
+    "crdl crdl crdl";
+  column-gap: 12px;
+  row-gap: 40px;
+}
+
+.card:nth-child(1) {
+  grid-area: crd1;
+}
+
+.card:nth-child(2) {
+  grid-area: crd2;
+}
+
+.card:nth-child(3) {
+  grid-area: crd3;
+}
+
+.cardl {
+  grid-area: crdl;
+}
+
+.legend {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 130%;
+  margin: 13px 0 26px;
+}
+
+.tc {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 110%;
+  color: var(--txt-timer-3);
+  margin-bottom: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iagree {
+  max-width: 418px;
+}
+
+.btn {
+  border: none;
+  border-radius: 60px;
+  background-color: var(--bg-highlight);
+  padding: 28px 100px;
+  width: 281px;
+  height: 76px;
+  font-family: var(--third-family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: var(--bg-accent);
+  margin-bottom: 30px;
+}
+
+.consent {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  color: var(--txt-timer-3);
+}

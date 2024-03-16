@@ -1,10 +1,16 @@
 import './App.css'
+import Header from './components/header/Header'
+import PlansSection from './components/plans-section/PlansSection'
 
 function App() {
 
   return (
     <>
-      <h1>4A.Consult Test Task</h1>
+      <Header />
+      <main>
+        <h1>Выберите подходящий тарифный план</h1>
+        <PlansSection />
+      </main>
     </>
   )
 }

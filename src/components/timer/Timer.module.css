@@ -1,0 +1,52 @@
+.timer {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 4rem 0.75rem 4rem;
+  grid-template-rows: 2.8rem auto;
+  grid-template-areas:
+    "mm c ss"
+    "lm . ls";
+}
+
+.min {
+  grid-area: mm;
+}
+
+.colon {
+  grid-area: c;
+}
+
+.sec {
+  grid-area: ss;
+}
+
+.legend_m {
+  grid-area: lm;
+}
+
+.legend_s {
+  grid-area: ls;
+}
+
+.min,
+.colon,
+.sec {
+  font-family: var(--font3);
+  font-weight: 400;
+  font-size: 60px;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--txt-timer-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.legend_s,
+.legend_m {
+  font-family: var(--font-family);
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--txt-timer-3);
+}

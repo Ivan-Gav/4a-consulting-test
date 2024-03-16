@@ -67,11 +67,50 @@
   --third-family: "Rubik", sans-serif;
   --font3: "Bebas Neue", sans-serif;
 
+  --bg-main: #f5f7f7;
+  --bg-accent: #ffffff;
+  --bg-highlight: #fd4d35;
+
+  --brdr-main: #d3d6dd;
+
+  --txt-main: #2d3242;
+  --txt-timer-1: #01b9c5;
+  --txt-timer-3: #818798;
+  --txt-link: #2d97f9;
+
   font-family: var(--font-family);
   font-weight: normal;
+
+  background-color: var(--bg-main);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: var(--third-family);
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 110%;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--txt-main);
+}
+
+a, a:visited, a:active {
+  text-decoration: none;
+  color: var(--txt-link);
+  cursor: pointer;
 }
