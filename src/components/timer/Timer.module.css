@@ -32,9 +32,7 @@
   grid-area: ls;
 }
 
-.min,
-.colon,
-.sec {
+.display {
   font-family: var(--font3);
   font-weight: 400;
   font-size: 60px;
@@ -46,9 +44,7 @@
   align-items: center;
 }
 
-.mobile .min,
-.mobile .colon,
-.mobile .sec {
+.mobile .display{
   font-size: 40px;
 }
 
@@ -65,4 +61,15 @@
 .mobile .legend_m {
   font-weight: normal;
   font-size: 14px;
+}
+
+.threshold_passed {
+  color: var(--bg-highlight);
+  animation: flash 0.5s 6;
+}
+
+@keyframes flash {
+  0% { color: var(--txt-timer-1); text-shadow: 0 0 0 var(--bg-highlight); }
+  50% { color: var(--bg-highlight); text-shadow: 0 0 5px var(--bg-highlight); }
+  100% { color: var(--txt-timer-1); text-shadow: 0 0 0 var(--bg-highlight); }
 }

@@ -1,0 +1,35 @@
+.btn {
+  border: none;
+  border-radius: 60px;
+  background-color: var(--bg-highlight);
+  padding: 28px 100px;
+  width: 281px;
+  height: 76px;
+  font-family: var(--third-family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: var(--bg-accent);
+  margin-bottom: 30px;
+  animation: glowing 1.5s infinite;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  animation: none;
+}
+
+.btn:disabled {
+  animation: none;
+  pointer-events: none;
+  background-color: var(--txt-timer-3);
+}
+
+@keyframes glowing {
+  0% { opacity: 0.8; box-shadow: 0 0 3px var(--bg-highlight); }
+  50% { opacity: 1; box-shadow: 0 0 20px var(--bg-highlight); }
+  100% { opacity: 0.8; box-shadow: 0 0 3px var(--bg-highlight); }
+}

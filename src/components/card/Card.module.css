@@ -9,6 +9,15 @@
   flex-direction: column;
   align-items: center;
   padding: 38px 18px 26px;
+  cursor: pointer;
+  transition: border-color, background-color;
+  transition-duration: 0.3s;
+}
+
+.card.selected,
+.card_l.selected {
+  border-color: var(--txt-timer-1);
+  background-color: rgba(1, 185, 197, 0.05);
 }
 
 .card_l.desktop {
