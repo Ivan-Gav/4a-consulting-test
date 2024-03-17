@@ -1,0 +1,141 @@
+.backdrop {
+  /* background-image: linear-gradient(
+    45deg,
+    magenta,
+    rebeccapurple,
+    dodgerblue,
+    green
+  );
+  opacity: 0.75; */
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  position: relative;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 750px;
+  height: 658px;
+  padding: 60px 40px 40px;
+  background: #f5f7f7;
+  border: none;
+  outline: none;
+}
+
+.tag {
+  position: absolute;
+  top: 0;
+  left: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding-inline: 10px;
+  height: 31px;
+  background: var(--txt-timer-1);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  color: var(--bg-accent);
+}
+
+.close_btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;  
+  background-color: transparent;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100vw;
+  color: var(--txt-add);
+  cursor: pointer;
+  transform: rotate(0);
+  transition: transform, color;
+  transition-duration: 0.3s;
+}
+
+.close_btn:hover {
+  transform: rotate(90deg);
+  color: var(--txt-main);
+}
+
+.header {
+  font-family: var(--third-family);
+  font-weight: bold;
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.highlight {
+  color: var(--txt-timer-1);
+}
+
+.subheader,
+.cards_header {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.cards_header {
+  align-self: flex-start;
+  margin-bottom: 20px;
+}
+
+.cards_header :last-child {
+  position: relative;
+  top: -3px;
+}
+
+.pill {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1.5px solid var(--txt-timer-1);
+  border-radius: 30px;
+  padding-inline: 30px;
+  height: 59px;
+  font-family: var(--font-family);
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+
+.pill :last-child {
+  position: relative;
+  top: -5px;
+}
+
+.button {
+  height: 62px;
+  animation: none;
+  transition: opacity 0.3s;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 210px);
+  grid-template-rows: 197px;
+  gap: 20px;
+  margin-bottom: 40px;
+}

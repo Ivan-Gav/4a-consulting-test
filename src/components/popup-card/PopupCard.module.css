@@ -1,0 +1,155 @@
+.card {
+  border: 2px solid var(--brdr-main);
+  border-radius: 20px;
+  background-color: var(--bg-accent);
+  height: 100%;
+  padding: 26px;
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    "titl chck"
+    "oldp chck"
+    "newp newp";
+  cursor: pointer;
+  transition: border-color, background-color;
+  transition-duration: 0.3s;
+}
+
+.card.selected {
+  border-color: var(--txt-timer-1);
+  background-color: rgba(1, 185, 197, 0.05);
+}
+
+.card.mobile {
+  align-items: flex-start;
+  padding: 36px 24px 10px;
+}
+
+.discount {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: -35%;
+  right: -53px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discount_bg {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+
+.discount_text {
+  position: absolute;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--bg-accent);
+}
+
+.title {
+  grid-area: titl;
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 100%;
+  color: var(--txt-main);
+  padding: 0;
+  margin: 0 0 12px;
+}
+
+.price_box {
+  grid-area: newp;
+  display: flex;
+  gap: 5px;
+}
+
+.price {
+  position: relative;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 46px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  color: #2d3242;
+  padding: 0;
+  margin: 0;
+}
+
+.old_price {
+  grid-area: oldp;
+  position: relative;
+  font-family: var(--font-family);
+  font-weight: bold;
+  font-size: 20px;
+  width: min-content;
+  color: var(--txt-dim-2);
+  padding: 0;
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.old_price::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  background: linear-gradient(
+      to top left,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) calc(50% - 2px),
+      var(--bg-highlight) 50%,
+      rgba(0, 0, 0, 0) calc(50% + 2px),
+      rgba(0, 0, 0, 0) 100%
+    ),
+    linear-gradient(
+      to top right,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) calc(50% - 2px),
+      var(--bg-highlight) 50%,
+      rgba(0, 0, 0, 0) calc(50% + 2px),
+      rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.radio {
+  grid-area: chck;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.input {
+  display: none;
+}
+
+.custom_input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 100px;
+  border: 1.5px solid var(--brdr-input);
+  transition: border-color 0.3s;
+}
+
+.selected .custom_input {
+  border-color: var(--txt-timer-1);
+}
+
+.custom_input:after {
+  opacity: 0;
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 100px;
+  background-color: var(--txt-timer-1);
+  transition: opacity 0.3s;
+}
+
+.selected .custom_input:after {
+  opacity: 1;
+}

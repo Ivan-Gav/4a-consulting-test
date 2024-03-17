@@ -5,10 +5,10 @@ import cn from "classnames";
 import s from "./Timer.module.css";
 import Colon from "src/assets/svg/colon.svg";
 
-const STARTING_TIME = 35; // in seconds
-const THRESHOLD_TIME = 30; // in seconds
+const STARTING_TIME = 15; // in seconds
+const THRESHOLD_TIME = 10; // in seconds
 
-export default function Timer() {
+export default function Timer({ onTimer }) {
   const [time, setTime] = useState(STARTING_TIME);
   const [isThresholdPassed, SetIsThresholdPassed] = useState(false)
 
@@ -19,7 +19,7 @@ export default function Timer() {
   useEffect(() => {
     let count
     if (time === 0) {
-      // later
+      onTimer()
     } else {
       count = setInterval(() => {
         setTime((prev) => prev - 1);
@@ -29,7 +29,7 @@ export default function Timer() {
       SetIsThresholdPassed(true)
     }
     return () => clearInterval(count);
-  }, [time]);
+  }, [time, onTimer]);
 
   let min = new Intl.NumberFormat("en-IN", { minimumIntegerDigits: 2 }).format(
     Math.floor(time / 60)

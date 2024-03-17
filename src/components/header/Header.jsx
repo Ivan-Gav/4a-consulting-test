@@ -4,7 +4,7 @@ import cn from "classnames";
 import Timer from "../timer/Timer";
 import s from "./Header.module.css";
 
-export default function Header() {
+export default function Header({ onTimer }) {
   const { device } = useMediaQuery({
     breakpoints: { desktop: 1100, tablet: 768, mobile: 0 },
   });
@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <header className={cn(s.header, s[device])}>
       <p className={cn(s.anouncement, s[device])}>Скидка действует:</p>
-      <Timer />
+      <Timer onTimer={onTimer} />
     </header>
   );
 }

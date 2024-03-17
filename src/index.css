@@ -72,11 +72,15 @@
   --bg-highlight: #fd4d35;
 
   --brdr-main: #d3d6dd;
-
+  --brdr-input: #555965;
+  
   --txt-main: #2d3242;
   --txt-timer-1: #01b9c5;
   --txt-timer-3: #818798;
   --txt-link: #2d97f9;
+  --txt-add: #ced1d8;
+  --txt-dim: #95979f;
+  --txt-dim-2: rgba(45,50,66,0.7);
 
   font-family: var(--font-family);
   font-weight: normal;
