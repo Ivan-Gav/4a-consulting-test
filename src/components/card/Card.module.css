@@ -5,21 +5,24 @@
   background-color: var(--bg-accent);
   height: 100%;
   position: relative;
-}
-
-
-.card {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 38px 18px 26px;
 }
 
-.card_l {
+.card_l.desktop {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 9.4%;
   padding: 20px 5.3% 0;
+}
+
+.card.mobile,
+.card_l.mobile {
+  align-items: flex-start;
+  padding: 36px 24px 10px;
 }
 
 .discount {
@@ -45,18 +48,40 @@
   color: var(--bg-accent);
 }
 
+.mobile .discount,
+.mobile .discount_bg {
+  width: 50px;
+  height: 50px;
+}
+
+.mobile .discount {
+  top: 4px;
+  right: 9px;
+}
+
+.mobile .discount_text {
+  font-size: 13px;
+}
+
 .container {
-  width: fit-content;
+  width: min-content;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   flex-grow: 1;
 }
 
-.card_l .container {
+.card_l.desktop .container {
   flex-direction: row;
   align-items: baseline;
   gap: 20px;
+}
+
+.mobile .container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 43% auto;
+  justify-items: start;
 }
 
 .title {
@@ -70,14 +95,27 @@
 }
 
 .card_l .title {
-  font-size: 38px;
   color: var(--txt-main);
+}
+
+.card_l.desktop .title {
+  font-size: 38px;
+}
+
+.mobile .title {
+  font-size: 24px;
+  margin-bottom: 16px;
 }
 
 .price_box {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+.card.mobile .price_box,
+.card_l.mobile .price_box {
+  grid-row: span 2;
 }
 
 .price {
@@ -89,6 +127,10 @@
   color: #2d3242;
   padding: 0;
   margin: 0;
+}
+
+.mobile .price {
+  font-size: 44px;
 }
 
 .old_price {
@@ -104,6 +146,10 @@
   text-decoration: line-through;
 }
 
+.mobile .old_price {
+  font-size: 20px;
+}
+
 .description {
   font-family: var(--font-family);
   font-weight: 500;
@@ -116,5 +162,15 @@
 }
 
 .card_l .description {
+  align-self: center;
+}
+
+.card_l.desktop .description {
+  text-align: left;
+  margin-left: 35px;
+}
+
+.mobile .description {
+  font-size: 14px;
   text-align: left;
 }

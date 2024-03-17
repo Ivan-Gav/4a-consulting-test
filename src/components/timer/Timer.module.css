@@ -1,11 +1,15 @@
 .timer {
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 4rem 0.75rem 4rem;
-  grid-template-rows: 2.8rem auto;
+  grid-template-columns: 64px 12px 64px;
+  grid-template-rows: 45px auto;
   grid-template-areas:
     "mm c ss"
     "lm . ls";
+}
+
+.timer.mobile {
+  grid-template-rows: 30px auto;
 }
 
 .min {
@@ -42,11 +46,23 @@
   align-items: center;
 }
 
+.mobile .min,
+.mobile .colon,
+.mobile .sec {
+  font-size: 40px;
+}
+
 .legend_s,
 .legend_m {
   font-family: var(--font-family);
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 16px;
   text-align: center;
   color: var(--txt-timer-3);
+}
+
+.mobile .legend_s,
+.mobile .legend_m {
+  font-weight: normal;
+  font-size: 14px;
 }

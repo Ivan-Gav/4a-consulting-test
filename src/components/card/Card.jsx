@@ -1,11 +1,17 @@
+import { useMediaQuery } from "@react-hooks-hub/use-media-query";
+import cn from "classnames";
+
 import s from "./Card.module.css";
 import Star from "src/assets/svg/star.svg";
 
 export default function Card(props) {
   const { title, price, oldPrice, description, discount, isLarge } = props;
+  const { device } = useMediaQuery({
+    breakpoints: { desktop: 1100, tablet: 768, mobile: 0 },
+  });
 
   return (
-    <div className={isLarge ? s.card_l : s.card}>
+    <div className={cn(isLarge ? s.card_l : s.card, s[device])}>
       <div className={s.discount}>
         <Star className={s.discount_bg} />
         <span className={s.discount_text}>-{discount}%</span>
@@ -16,8 +22,9 @@ export default function Card(props) {
           <p className={s.price}>{price}₽</p>
           {!!oldPrice && <p className={s.old_price}>{oldPrice}₽</p>}
         </div>
-      </div>
       <div className={s.description}>{description}</div>
+      </div>
+      
     </div>
   );
 }

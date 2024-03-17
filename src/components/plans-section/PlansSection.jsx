@@ -1,3 +1,6 @@
+import { useMediaQuery } from "@react-hooks-hub/use-media-query";
+import cn from "classnames";
+
 import s from "./PlansSection.module.css";
 import img from "src/assets/images/img.png";
 import Card from "../card/Card";
@@ -16,7 +19,7 @@ const plans = [
     title: "1 месяц",
     price: "999",
     oldPrice: "1690",
-    description: "Привести тело впорядок 💪🏻",
+    description: "Привести тело в порядок 💪🏻",
     discount: "40",
     isSelected: false,
   },
@@ -38,14 +41,29 @@ const plans = [
   },
 ];
 
+const truncate = (str, wordsQty) => {
+  const arr = str.split(' ');
+  if (arr.length <= wordsQty) {
+    return str;
+  }
+  const emoji = (/\p{Emoji}/u).test(arr[arr.length - 1]) ? arr[arr.length - 1] : ''
+  return arr.splice(0, wordsQty).join(' ') + emoji
+}
+
 export default function PlansSection() {
+  const { device } = useMediaQuery({
+    breakpoints: { desktop: 1100, tablet: 768, mobile: 0 },
+  });
+
   return (
-    <section className={s.section}>
+    <section className={cn(s.section, s[device])}>
       <img className={s.img} src={img} alt="plans" />
       <div className={s.plans}>
-        <div className={s.cards}>
-          {plans.map((p, i) => (
-            <div
+        <div className={cn(s.cards, s[device])}>
+          {plans.map((p, i) => {
+            const desc = device === 'desktop' ? p.description : truncate(p.description, 4)
+            
+            return (<div
               key={p.title}
               className={i === plans.length - 1 ? s.cardl : s.card}
             >
@@ -53,12 +71,12 @@ export default function PlansSection() {
                 title={p.title}
                 price={p.price}
                 oldPrice={p.oldPrice}
-                description={p.description}
+                description={desc}
                 discount={p.discount}
-                isLarge={i===3}
+                isLarge={i === 3} 
               />
-            </div>
-          ))}
+            </div>)
+          })}
         </div>
         <div className={s.legend}>
           Следуя плану на 3 месяца, люди получают в 2 раза лучший результат, чем

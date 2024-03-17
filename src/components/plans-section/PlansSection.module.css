@@ -6,6 +6,18 @@
   gap: 78px;
 }
 
+.section.mobile {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items:center;
+  margin-top: 20px;
+  gap: 5px;
+}
+
+.mobile .img {
+  width: 277px;
+}
+
 .plans {
   max-width: 585px;
   display: flex;
@@ -23,6 +35,27 @@
     "crdl crdl crdl";
   column-gap: 12px;
   row-gap: 40px;
+}
+
+.cards.tablet {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 261px 261px;
+  grid-template-areas:
+    "crd1 crd2"
+    "crd3 crdl";
+  column-gap: 12px;
+  row-gap: 40px;
+}
+
+.cards.mobile {
+  grid-template-columns: 1fr;
+  grid-template-rows: 144px;
+  grid-template-areas:
+    "crd1"
+    "crd2"
+    "crd3"
+    "crdl";
+  row-gap: 9px;
 }
 
 .card:nth-child(1) {
@@ -47,6 +80,10 @@
   font-size: 18px;
   line-height: 130%;
   margin: 13px 0 26px;
+}
+
+.mobile .legend {
+  font-size: 14px;
 }
 
 .tc {
