@@ -7,6 +7,7 @@ import s from "./App.module.css";
 import Header from "./components/header/Header";
 import PlansSection from "./components/plans-section/PlansSection";
 import Popup from "./components/popup/Popup";
+import useAPI from "./hooks/useAPI";
 
 function App() {
   const { device } = useMediaQuery({
@@ -15,6 +16,7 @@ function App() {
 
   const [showPopup, setShowPopup] = useState(false);
   const [isDiscounted, setIsDiscounted] = useState(true);
+  const { plans, isLoading, error } = useAPI();
 
   const handleTimer = useCallback(() => setIsDiscounted(false), []);
   const handleClose = useCallback(() => setShowPopup(false), []);
@@ -22,22 +24,34 @@ function App() {
 
   useEffect(() => {
     if (showPopup) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = "auto"
+      document.body.style.overflow = "auto";
     }
-  }, [showPopup])
+  }, [showPopup]);
+
+  if (error) {
+    return <h1>Ошибка Сервера: {error}</h1>
+  }
 
   return (
     <>
       <Header onTimer={handleTimer} />
-      {showPopup && <Popup onCloseClick={handleClose} />}
+      {isLoading ? <h1>Loading...</h1> :
+      <>
+      {showPopup && <Popup onCloseClick={handleClose} plans={plans} />}
       <main className={cn(s.main, s[device])}>
         <h1 className={cn(s.header, s[device])}>
           Выберите подходящий тарифный план
         </h1>
-        <PlansSection isDiscounted={isDiscounted} onAnimationEnd={handleAnimation} />
+        <PlansSection
+          isDiscounted={isDiscounted}
+          onAnimationEnd={handleAnimation}
+          plans={plans}
+        />
       </main>
+      </>
+      }
     </>
   );
 }

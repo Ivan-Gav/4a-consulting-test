@@ -24,7 +24,6 @@ export default function Card(props) {
   });
 
   useEffect(() => {
-    console.log(`isTransition: ${isTransition}`);
     if (isTransition && !isDiscounted) {
       const transitionTimer = setTimeout(() => {
         onAnimationEnd();

@@ -7,54 +7,10 @@ import img from "src/assets/images/img.png";
 import Card from "../card/Card";
 import Checkbox from "../ui/checkbox/Checkbox";
 import Button from "../ui/button/Button";
+import getDiscount from "../../utils/getDiscount";
+import truncate from "../../utils/truncate";
 
-const plans = [
-  {
-    title: "1 неделя",
-    price: "699",
-    oldPrice: "999",
-    description: "Чтобы просто начать 👍🏻",
-    discount: "30",
-    isSelected: true,
-  },
-  {
-    title: "1 месяц",
-    price: "999",
-    oldPrice: "1690",
-    description: "Привести тело в порядок 💪🏻",
-    discount: "40",
-    isSelected: false,
-  },
-  {
-    title: "3 месяца",
-    price: "2990",
-    oldPrice: "5990",
-    description: "Изменить образ жизни 🔥",
-    discount: "50",
-    isSelected: false,
-  },
-  {
-    title: "навсегда",
-    price: "5990",
-    oldPrice: "18 990",
-    description: "Всегда быть в форме и поддерживать своё здоровье ⭐️",
-    discount: "70",
-    isSelected: false,
-  },
-];
-
-const truncate = (str, wordsQty) => {
-  const arr = str.split(" ");
-  if (arr.length <= wordsQty) {
-    return str;
-  }
-  const emoji = /\p{Emoji}/u.test(arr[arr.length - 1])
-    ? arr[arr.length - 1]
-    : "";
-  return arr.splice(0, wordsQty).join(" ") + emoji;
-};
-
-export default function PlansSection({ isDiscounted, onAnimationEnd }) {
+export default function PlansSection({ isDiscounted, onAnimationEnd, plans }) {
   const { device } = useMediaQuery({
     breakpoints: { desktop: 1100, tablet: 768, mobile: 0 },
   });
@@ -74,20 +30,20 @@ export default function PlansSection({ isDiscounted, onAnimationEnd }) {
         <div className={cn(s.cards, s[device])}>
           {plans.map((p, i) => {
             const desc =
-              device === "desktop" ? p.description : truncate(p.description, 4);
+              device === "desktop" ? p.description : truncate(p.description);
 
             return (
               <div
-                key={p.title}
+                key={p.id}
                 className={i === plans.length - 1 ? s.cardl : s.card}
               >
                 <Card
                   isDiscounted={isDiscounted}
-                  title={p.title}
-                  price={isDiscounted || isTransition ? p.price : p.oldPrice}
-                  oldPrice={(isDiscounted || isTransition) && p.oldPrice}
+                  title={p.name}
+                  price={isDiscounted || isTransition ? p.popularPrice : p.regularPrice}
+                  oldPrice={(isDiscounted || isTransition) && p.regularPrice}
                   description={desc}
-                  discount={(isDiscounted || isTransition) && p.discount}
+                  discount={(isDiscounted || isTransition) && getDiscount(p.popularPrice, p.regularPrice)}
                   isLarge={i === 3}
                   onClick={() => setIsSelected(i)}
                   isSelected={isSelected === i}
