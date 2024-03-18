@@ -3,7 +3,7 @@
   border-radius: 20px;
   background-color: var(--bg-accent);
   height: 100%;
-  padding: 26px;
+  padding: 22px 24px;
   position: relative;
   display: grid;
   grid-template-areas:
@@ -13,6 +13,16 @@
   cursor: pointer;
   transition: border-color, background-color;
   transition-duration: 0.3s;
+}
+
+.card::after {
+  content: '';
+  position:absolute;
+  height: 2px;
+  width: 136px;
+  background-color: var(--brdr-divider);
+  top: 102px;
+  left: calc((100% - 136px) / 2);
 }
 
 .card.selected {
@@ -55,17 +65,17 @@
   grid-area: titl;
   font-family: var(--second-family);
   font-weight: 400;
-  font-size: 30px;
-  line-height: 100%;
+  font-size: 26px;
   color: var(--txt-main);
   padding: 0;
-  margin: 0 0 12px;
+  margin: 0;
 }
 
 .price_box {
   grid-area: newp;
   display: flex;
   gap: 5px;
+  align-self: end;
 }
 
 .price {
@@ -90,7 +100,7 @@
   color: var(--txt-dim-2);
   padding: 0;
   margin: 0;
-  margin-bottom: 16px;
+  height: min-content;
 }
 
 .old_price::after {

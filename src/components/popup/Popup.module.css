@@ -1,12 +1,4 @@
 .backdrop {
-  /* background-image: linear-gradient(
-    45deg,
-    magenta,
-    rebeccapurple,
-    dodgerblue,
-    green
-  );
-  opacity: 0.75; */
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.4);
@@ -26,7 +18,7 @@
   align-items: center;
   width: 750px;
   height: 658px;
-  padding: 60px 40px 40px;
+  padding: 64px 40px 40px;
   background: #f5f7f7;
   border: none;
   outline: none;
@@ -117,7 +109,7 @@
   border: 1.5px solid var(--txt-timer-1);
   border-radius: 30px;
   padding-inline: 30px;
-  height: 59px;
+  min-height: 59px;
   font-family: var(--font-family);
   font-weight: bold;
   font-size: 24px;
@@ -130,7 +122,7 @@
 }
 
 .button {
-  height: 62px;
+  min-height: 62px;
   animation: none;
   transition: opacity 0.3s;
 }

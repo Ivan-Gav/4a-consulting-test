@@ -5,7 +5,7 @@ import s from "./PopupCard.module.css";
 import Star from "src/assets/svg/star.svg";
 
 export default function PopupCard(props) {
-  const { title, price, oldPrice, description, discount, onClick, isSelected } =
+  const { title, price, oldPrice, discount, onClick, isSelected } =
     props;
   const { device } = useMediaQuery({
     breakpoints: { desktop: 1100, tablet: 768, mobile: 0 },
@@ -31,7 +31,6 @@ export default function PopupCard(props) {
           </div>
         </div>
       </div>
-      <div className={s.description}>{description}</div>
     </label>
   );
 }
