@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { useMediaQuery } from "@react-hooks-hub/use-media-query";
 import cn from "classnames";
@@ -19,8 +19,14 @@ function App() {
   const handleTimer = useCallback(() => setIsDiscounted(false), []);
   const handleClose = useCallback(() => setShowPopup(false), []);
   const handleAnimation = useCallback(() => setShowPopup(true), []);
-  // const handleAnimation = useCallback(() => {}, []);
 
+  useEffect(() => {
+    if (showPopup) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "auto"
+    }
+  }, [showPopup])
 
   return (
     <>
