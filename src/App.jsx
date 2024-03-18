@@ -3,9 +3,9 @@ import { useCallback, useState } from "react";
 import { useMediaQuery } from "@react-hooks-hub/use-media-query";
 import cn from "classnames";
 
-import s from './App.module.css'
-import Header from './components/header/Header'
-import PlansSection from './components/plans-section/PlansSection'
+import s from "./App.module.css";
+import Header from "./components/header/Header";
+import PlansSection from "./components/plans-section/PlansSection";
 import Popup from "./components/popup/Popup";
 
 function App() {
@@ -14,20 +14,26 @@ function App() {
   });
 
   const [showPopup, setShowPopup] = useState(false);
+  const [isDiscounted, setIsDiscounted] = useState(true);
 
-  const handleTimer = useCallback(() => setShowPopup(true),[])
-  const handleClose = useCallback(() => setShowPopup(false),[])
+  const handleTimer = useCallback(() => setIsDiscounted(false), []);
+  const handleClose = useCallback(() => setShowPopup(false), []);
+  const handleAnimation = useCallback(() => setShowPopup(true), []);
+  // const handleAnimation = useCallback(() => {}, []);
+
 
   return (
     <>
-      <Header onTimer={handleTimer}/>
-      {showPopup && <Popup onCloseClick={handleClose}/>}
+      <Header onTimer={handleTimer} />
+      {showPopup && <Popup onCloseClick={handleClose} />}
       <main className={cn(s.main, s[device])}>
-        <h1 className={cn(s.header, s[device])}>Выберите подходящий тарифный план</h1>
-        <PlansSection />
+        <h1 className={cn(s.header, s[device])}>
+          Выберите подходящий тарифный план
+        </h1>
+        <PlansSection isDiscounted={isDiscounted} onAnimationEnd={handleAnimation} />
       </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { useMediaQuery } from "@react-hooks-hub/use-media-query";
 import cn from "classnames";
 
@@ -54,12 +54,18 @@ const truncate = (str, wordsQty) => {
   return arr.splice(0, wordsQty).join(" ") + emoji;
 };
 
-export default function PlansSection() {
+export default function PlansSection({ isDiscounted, onAnimationEnd }) {
   const { device } = useMediaQuery({
     breakpoints: { desktop: 1100, tablet: 768, mobile: 0 },
   });
 
   const [isSelected, setIsSelected] = useState(0);
+  const [isTransition, setIsTransition] = useState(true);
+
+  const handleAnimation = useCallback(() => {
+    onAnimationEnd();
+    setIsTransition(false);
+  }, [onAnimationEnd]);
 
   return (
     <section className={cn(s.section, s[device])}>
@@ -76,14 +82,17 @@ export default function PlansSection() {
                 className={i === plans.length - 1 ? s.cardl : s.card}
               >
                 <Card
+                  isDiscounted={isDiscounted}
                   title={p.title}
-                  price={p.price}
-                  oldPrice={p.oldPrice}
+                  price={isDiscounted || isTransition ? p.price : p.oldPrice}
+                  oldPrice={(isDiscounted || isTransition) && p.oldPrice}
                   description={desc}
-                  discount={p.discount}
+                  discount={(isDiscounted || isTransition) && p.discount}
                   isLarge={i === 3}
                   onClick={() => setIsSelected(i)}
                   isSelected={isSelected === i}
+                  onAnimationEnd={handleAnimation}
+                  isTransition={isTransition}
                 />
               </div>
             );
@@ -94,7 +103,7 @@ export default function PlansSection() {
           за 1 месяц
         </div>
         <div className={s.tc}>
-          <Checkbox defaultChecked={true} id="tandc"/>
+          <Checkbox defaultChecked={true} id="tandc" />
           <span className={s.iagree}>
             Я соглашаюсь с <a href="#">Правилами сервиса</a> и условиями{" "}
             <a href="#">Публичной оферты.</a>
