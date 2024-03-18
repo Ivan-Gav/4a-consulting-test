@@ -1,8 +1,12 @@
+import { useState } from "react";
+import { useMediaQuery } from "@react-hooks-hub/use-media-query";
+import cn from "classnames";
+
+
 import s from "./Popup.module.css";
 import Close from "src/assets/svg/close.svg";
 import Button from "../ui/button/Button";
 import PopupCard from "../popup-card/PopupCard";
-import { useState } from "react";
 
 const plans = [
   {
@@ -35,6 +39,10 @@ export default function Popup(props) {
   const { onCloseClick, ...restOfProps } = props;
   const [isSelected, setIsSelected] = useState(0);
 
+  const { device } = useMediaQuery({
+    breakpoints: { desktop: 1100, tablet: 768, mobile: 0 },
+  });
+
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
       onCloseClick();
@@ -43,7 +51,7 @@ export default function Popup(props) {
 
   return (
     <div className={s.backdrop} onClick={handleBackdropClick}>
-      <div className={s.modal} {...restOfProps}>
+      <div className={cn(s.modal, s[device])} {...restOfProps}>
         <div className={s.tag}>Горящее предложение</div>
         <button className={s.close_btn}>
           <Close onClick={onCloseClick} />
@@ -55,9 +63,11 @@ export default function Popup(props) {
           Мы знаем, как трудно начать.. <strong>Поэтому!</strong>
         </p>
         <p className={s.pill}>
-          Дарим скидку для{" "}
-          <span className={s.highlight}>&nbsp;лёгкого старта</span>
+          <span>Дарим скидку для
+          <em className={s.highlight}>&nbsp;лёгкого старта</em>
+          
           <span>&nbsp;🏃🏼‍♂️</span>
+          </span>
         </p>
         <p className={s.cards_header}>
           Посмотри что мы для тебя приготовили <span>🔥</span>
@@ -65,8 +75,9 @@ export default function Popup(props) {
         <div className={s.cards}>
           {plans.map((p, i) => {
             return (
-              <div key={p.title}>
+
                 <PopupCard
+                  key={p.title}
                   title={p.title}
                   price={p.price}
                   oldPrice={p.oldPrice}
@@ -74,7 +85,7 @@ export default function Popup(props) {
                   onClick={() => setIsSelected(i)}
                   isSelected={isSelected === i}
                 />
-              </div>
+
             );
           })}
         </div>
