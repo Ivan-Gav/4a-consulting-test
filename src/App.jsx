@@ -10,6 +10,8 @@ import Loading from "./components/ui/loading/Loading"
 import useAPI from "./hooks/useAPI";
 import useDevice from "./hooks/useDevice";
 
+const POPUP_DELAY = 3000 // in msec
+
 function App() {
   const { device } = useDevice();
 
@@ -19,7 +21,10 @@ function App() {
 
   const handleTimer = useCallback(() => setIsDiscounted(false), []);
   const handleClose = useCallback(() => setShowPopup(false), []);
-  const handleAnimation = useCallback(() => setShowPopup(true), []);
+  const handleAnimation = useCallback(() =>{ 
+    const popupDelay = setTimeout(() => setShowPopup(true), POPUP_DELAY)
+    return () => clearTimeout(popupDelay)
+    }, []);
 
   useEffect(() => {
     if (showPopup) {
