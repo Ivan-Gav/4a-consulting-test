@@ -6,6 +6,7 @@ import s from "./App.module.css";
 import Header from "./components/header/Header";
 import PlansSection from "./components/plans-section/PlansSection";
 import Popup from "./components/popup/Popup";
+import Loading from "./components/ui/loading/Loading"
 import useAPI from "./hooks/useAPI";
 import useDevice from "./hooks/useDevice";
 
@@ -29,8 +30,6 @@ function App() {
   }, [showPopup]);
 
   const Error = () => <h1>Ошибка: {error}</h1>;
-
-  const Loading = () => <h1>Loading...</h1>;
 
   return (
     <>

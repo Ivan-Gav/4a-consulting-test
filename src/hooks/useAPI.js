@@ -55,13 +55,12 @@ export default function useAPI() {
       setIsLoading(true);
       try {
         const { data } = await axios.get(URL);
-        const plans = sortPlans(data);
-        setPlans(plans);
+        setPlans(sortPlans(data));
       } catch (error) {
         if (error instanceof Error) {
           setError(error.message);
         } else {
-          setError("unknown error on fetching data from server");
+          setError("unknown error");
         }
       } finally {
         setIsLoading(false);
