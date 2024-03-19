@@ -1,5 +1,16 @@
 # 4A.Consult Test Task
 
+### Деплой приложения
+[Ссылка](https://ivan-gav.github.io/4a-consulting-test/)
+
+### Скриншот
+
+![alt text](image.png)
+
+### Стэк
+- React
+- Vite
+
 ## Тестовое задание для кандидата на вакансию веб-инженера
 
 1. Необходимо перейти по [ссылке в Figma](https://www.figma.com/file/9XgWK3p8hV7kGaeNbVqnpm/%D0%B4%D0%BB%D1%8F-%D0%B2%D0%B5%D1%80%D1%81%D1%82%D0%BA%D0%B8?type=design&node-id=0%3A1&mode=design&t=h09Rzn4ocBcWUV0t-1)

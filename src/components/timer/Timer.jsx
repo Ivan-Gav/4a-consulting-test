@@ -5,8 +5,8 @@ import s from "./Timer.module.css";
 import useDevice from "src/hooks/useDevice";
 import Colon from "src/assets/svg/colon.svg";
 
-const STARTING_TIME = 5; // in seconds
-const THRESHOLD_TIME = 3; // in seconds
+const STARTING_TIME = 120; // in seconds
+const THRESHOLD_TIME = 30; // in seconds
 
 export default function Timer({ onTimer }) {
   const [time, setTime] = useState(STARTING_TIME);
