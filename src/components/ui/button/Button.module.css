@@ -15,17 +15,16 @@
   animation: glowing 1.5s infinite;
   cursor: pointer;
   transition: opacity 0.3s;
-}
 
-.btn:hover,
-.btn:focus-visible {
-  animation: none;
-}
-
-.btn:disabled {
-  animation: none;
-  pointer-events: none;
-  background-color: var(--txt-dim-3);
+  &:hover,
+  &:focus-visible {
+    animation: none;
+  }
+  &:disabled {
+    animation: none;
+    pointer-events: none;
+    background-color: var(--txt-dim-3);
+  }
 }
 
 @keyframes glowing {
