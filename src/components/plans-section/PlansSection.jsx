@@ -70,7 +70,7 @@ export default function PlansSection({ isDiscounted, onAnimationEnd, plans }) {
             <a href="#">Публичной оферты.</a>
           </span>
         </div>
-        <Button>Купить</Button>
+        <Button className={s.btn_buy}>Купить</Button>
         <div className={s.consent}>
           Нажимая «Купить», Пользователь соглашается на автоматическое списание
           денежных средств по истечению купленного периода. Дальнейшие списания

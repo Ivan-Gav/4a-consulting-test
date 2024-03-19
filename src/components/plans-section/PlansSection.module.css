@@ -17,9 +17,21 @@
 .mobile {
   .img {
     width: 277px;
+    height: 441px;
   }
   .legend {
     font-size: 14px;
+    margin: 13px 0 36px;
+  }
+  .tc {
+    margin-bottom: 24px;
+  }
+  .btn_buy {
+    width: 100%;
+    max-width: 335px;
+  }
+  .consent {
+    display: none;
   }
 }
 

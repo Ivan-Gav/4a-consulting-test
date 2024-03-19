@@ -33,6 +33,7 @@
     padding: 20px 5.2% 0;
 
     .container {
+      align-self: flex-start;
       flex-direction: row;
       align-items: baseline;
       gap: 20px;
@@ -40,9 +41,15 @@
     .title {
       font-size: 38px;
     }
+    /* .price_box {
+      margin-top: 20px;
+    } */
     .description {
       text-align: left;
-      margin-left: 35px;
+      margin-left: 25px;
+      align-self: flex-start;
+      position: relative;
+      top: 15px;
     }
   }
   .title {
