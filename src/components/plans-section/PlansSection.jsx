@@ -1,5 +1,4 @@
 import { useCallback, useState } from "react";
-import { useMediaQuery } from "@react-hooks-hub/use-media-query";
 import cn from "classnames";
 
 import s from "./PlansSection.module.css";
@@ -7,13 +6,12 @@ import img from "src/assets/images/img.png";
 import Card from "../card/Card";
 import Checkbox from "../ui/checkbox/Checkbox";
 import Button from "../ui/button/Button";
-import getDiscount from "../../utils/getDiscount";
-import truncate from "../../utils/truncate";
+import getDiscount from "src/utils/getDiscount";
+import truncate from "src/utils/truncate";
+import useDevice from "src/hooks/useDevice";
 
 export default function PlansSection({ isDiscounted, onAnimationEnd, plans }) {
-  const { device } = useMediaQuery({
-    breakpoints: { desktop: 1100, tablet: 768, mobile: 0 },
-  });
+  const { device } = useDevice();
 
   const [isSelected, setIsSelected] = useState(0);
   const [isTransition, setIsTransition] = useState(true);
@@ -40,10 +38,17 @@ export default function PlansSection({ isDiscounted, onAnimationEnd, plans }) {
                 <Card
                   isDiscounted={isDiscounted}
                   title={p.name}
-                  price={isDiscounted || isTransition ? p.popularPrice : p.regularPrice}
+                  price={
+                    isDiscounted || isTransition
+                      ? p.popularPrice
+                      : p.regularPrice
+                  }
                   oldPrice={(isDiscounted || isTransition) && p.regularPrice}
                   description={desc}
-                  discount={(isDiscounted || isTransition) && getDiscount(p.popularPrice, p.regularPrice)}
+                  discount={
+                    (isDiscounted || isTransition) &&
+                    getDiscount(p.popularPrice, p.regularPrice)
+                  }
                   isLarge={i === 3}
                   onClick={() => setIsSelected(i)}
                   isSelected={isSelected === i}

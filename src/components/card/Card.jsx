@@ -1,9 +1,9 @@
-import { useMediaQuery } from "@react-hooks-hub/use-media-query";
+import { useEffect } from "react";
 import cn from "classnames";
 
 import s from "./Card.module.css";
 import Star from "src/assets/svg/star.svg";
-import { useEffect } from "react";
+import useDevice from "src/hooks/useDevice";
 
 export default function Card(props) {
   const {
@@ -19,9 +19,7 @@ export default function Card(props) {
     onAnimationEnd,
     isTransition,
   } = props;
-  const { device } = useMediaQuery({
-    breakpoints: { desktop: 1100, tablet: 768, mobile: 0 },
-  });
+  const { device } = useDevice();
 
   useEffect(() => {
     if (isTransition && !isDiscounted) {

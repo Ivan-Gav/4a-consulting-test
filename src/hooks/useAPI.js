@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import Axios from "axios";
-import { setupCache } from "axios-cache-interceptor";
+import { setupCache, buildWebStorage } from "axios-cache-interceptor";
 
 const instance = Axios.create();
-const axios = setupCache(instance);
+const axios = setupCache(instance,  { 
+  storage: buildWebStorage(localStorage, 'axios-cache:')
+});
 
 const URL = "https://t-pay.iqfit.app/subscribe/list-test";
 
@@ -52,9 +54,8 @@ export default function useAPI() {
     const request = async () => {
       setIsLoading(true);
       try {
-        const res = await axios.get(URL);
-        console.log(res);
-        const plans = sortPlans(res.data);
+        const { data } = await axios.get(URL);
+        const plans = sortPlans(data);
         setPlans(plans);
       } catch (error) {
         if (error instanceof Error) {

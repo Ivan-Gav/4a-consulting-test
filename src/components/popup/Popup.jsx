@@ -1,20 +1,18 @@
 import { useState } from "react";
-import { useMediaQuery } from "@react-hooks-hub/use-media-query";
 import cn from "classnames";
 
 import s from "./Popup.module.css";
 import Close from "src/assets/svg/close.svg";
 import Button from "../ui/button/Button";
 import PopupCard from "../popup-card/PopupCard";
-import getDiscount from "../../utils/getDiscount";
+import getDiscount from "src/utils/getDiscount";
+import useDevice from "src/hooks/useDevice";
 
 export default function Popup(props) {
   const { plans, onCloseClick } = props;
   const [isSelected, setIsSelected] = useState(0);
 
-  const { device } = useMediaQuery({
-    breakpoints: { desktop: 1100, tablet: 768, mobile: 0 },
-  });
+  const { device } = useDevice();
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {

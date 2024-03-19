@@ -1,13 +1,11 @@
-import { useMediaQuery } from "@react-hooks-hub/use-media-query";
 import cn from "classnames";
 
-import Timer from "../timer/Timer";
 import s from "./Header.module.css";
+import useDevice from "src/hooks/useDevice";
+import Timer from "../timer/Timer";
 
 export default function Header({ onTimer }) {
-  const { device } = useMediaQuery({
-    breakpoints: { desktop: 1100, tablet: 768, mobile: 0 },
-  });
+  const { device } = useDevice();
 
   return (
     <header className={cn(s.header, s[device])}>

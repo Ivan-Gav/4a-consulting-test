@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useMediaQuery } from "@react-hooks-hub/use-media-query";
 import cn from "classnames";
 
 import s from "./Timer.module.css";
+import useDevice from "src/hooks/useDevice";
 import Colon from "src/assets/svg/colon.svg";
 
 const STARTING_TIME = 5; // in seconds
@@ -10,23 +10,21 @@ const THRESHOLD_TIME = 3; // in seconds
 
 export default function Timer({ onTimer }) {
   const [time, setTime] = useState(STARTING_TIME);
-  const [isThresholdPassed, SetIsThresholdPassed] = useState(false)
+  const [isThresholdPassed, SetIsThresholdPassed] = useState(false);
 
-  const { device } = useMediaQuery({
-    breakpoints: { desktop: 1100, tablet: 768, mobile: 0 },
-  });
+  const { device } = useDevice();
 
   useEffect(() => {
-    let count
+    let count;
     if (time === 0) {
-      onTimer()
+      onTimer();
     } else {
       count = setInterval(() => {
         setTime((prev) => prev - 1);
       }, 1000);
     }
     if (time === THRESHOLD_TIME) {
-      SetIsThresholdPassed(true)
+      SetIsThresholdPassed(true);
     }
     return () => clearInterval(count);
   }, [time, onTimer]);
@@ -40,11 +38,33 @@ export default function Timer({ onTimer }) {
 
   return (
     <div className={cn(s.timer, s[device])}>
-      <div className={cn(s.min, s.display, isThresholdPassed && s.threshold_passed)}>{min}</div>
-      <div className={cn(s.colon, s.display, isThresholdPassed && s.threshold_passed)}>
+      <div
+        className={cn(
+          s.min,
+          s.display,
+          isThresholdPassed && s.threshold_passed
+        )}
+      >
+        {min}
+      </div>
+      <div
+        className={cn(
+          s.colon,
+          s.display,
+          isThresholdPassed && s.threshold_passed
+        )}
+      >
         <Colon />
       </div>
-      <div className={cn(s.sec, s.display, isThresholdPassed && s.threshold_passed)}>{sec}</div>
+      <div
+        className={cn(
+          s.sec,
+          s.display,
+          isThresholdPassed && s.threshold_passed
+        )}
+      >
+        {sec}
+      </div>
       <div className={s.legend_m}>минут</div>
       <div className={s.legend_s}>секунд</div>
     </div>
