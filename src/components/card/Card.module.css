@@ -220,12 +220,15 @@
 @keyframes burn-3 {
   0% {
     color: var(--txt-main);
+    filter: blur(0);
   }
-  70% {
+  30% {
     color: rgb(255, 187, 97);
+    filter: blur(1px);
   }
   100% {
     color: transparent;
+    filter: blur(10px);
   }
 }
 
