@@ -33,12 +33,12 @@
 }
 
 .display {
-  font-family: var(--font3);
+  font-family: var(--font-display);
   font-weight: 400;
   font-size: 60px;
   text-transform: uppercase;
   text-align: center;
-  color: var(--txt-timer-1);
+  color: var(--color-brand);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,11 +50,11 @@
 
 .legend_s,
 .legend_m {
-  font-family: var(--font-family);
+  font-family: var(--font-base);
   font-weight: bold;
   font-size: 16px;
   text-align: center;
-  color: var(--txt-timer-3);
+  color: var(--txt-dim-3);
 }
 
 .mobile .legend_s,
@@ -64,12 +64,12 @@
 }
 
 .threshold_passed {
-  color: var(--bg-highlight);
+  color: var(--color-brand-accent);
   animation: flash 0.5s 6;
 }
 
 @keyframes flash {
-  0% { color: var(--txt-timer-1); text-shadow: 0 0 0 var(--bg-highlight); }
-  50% { color: var(--bg-highlight); text-shadow: 0 0 5px var(--bg-highlight); }
-  100% { color: var(--txt-timer-1); text-shadow: 0 0 0 var(--bg-highlight); }
+  0% { color: var(--color-brand); text-shadow: 0 0 0 var(--color-brand-accent); }
+  50% { color: var(--color-brand-accent); text-shadow: 0 0 5px var(--color-brand-accent); }
+  100% { color: var(--color-brand); text-shadow: 0 0 0 var(--color-brand-accent); }
 }

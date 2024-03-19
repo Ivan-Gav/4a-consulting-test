@@ -16,7 +16,7 @@
 
 .card.selected,
 .card_l.selected {
-  border-color: var(--txt-timer-1);
+  border-color: var(--color-brand);
   background-color: rgba(1, 185, 197, 0.05);
 }
 
@@ -48,12 +48,12 @@
 
 .discount_bg {
   position: absolute;
-  color: var(--bg-highlight);
+  color: var(--color-brand-accent);
 }
 
 .discount_text {
   position: absolute;
-  font-family: var(--font-family);
+  font-family: var(--font-base);
   font-weight: 500;
   font-size: 18px;
   color: var(--bg-accent);
@@ -96,7 +96,7 @@
 }
 
 .title {
-  font-family: var(--second-family);
+  font-family: var(--font-title);
   font-weight: 400;
   font-size: 30px;
   line-height: 100%;
@@ -131,7 +131,7 @@
 }
 
 .price {
-  font-family: var(--font-family);
+  font-family: var(--font-base);
   font-weight: 700;
   font-size: 50px;
   line-height: 110%;
@@ -148,7 +148,7 @@
 }
 
 .old_price {
-  font-family: var(--font-family);
+  font-family: var(--font-base);
   font-weight: 500;
   font-size: 24px;
   line-height: 115%;
@@ -165,7 +165,7 @@
 }
 
 .description {
-  font-family: var(--font-family);
+  font-family: var(--font-base);
   font-weight: 500;
   font-size: 16px;
   line-height: 130%;
@@ -207,9 +207,9 @@
 }
 
 @keyframes burn-1 {
-  0% {color: #fd4d35; filter: drop-shadow(0 0 0 var(--bg-highlight))}
-  50% {color: #fd9235; filter: drop-shadow(0 0 10px var(--bg-highlight))}
-  100% {color: transparent; filter: drop-shadow(0 0 0 var(--bg-highlight))}
+  0% {color: #fd4d35; filter: drop-shadow(0 0 0 var(--color-brand-accent))}
+  50% {color: #fd9235; filter: drop-shadow(0 0 10px var(--color-brand-accent))}
+  100% {color: transparent; filter: drop-shadow(0 0 0 var(--color-brand-accent))}
 }
 
 @keyframes burn-2 {

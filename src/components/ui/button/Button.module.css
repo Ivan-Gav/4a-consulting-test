@@ -1,12 +1,12 @@
 .btn {
   border: none;
   border-radius: 60px;
-  background-color: var(--bg-highlight);
+  background-color: var(--color-brand-accent);
   padding: 0 42px;
   min-width: 281px;
   width: fit-content;
   min-height: 76px;
-  font-family: var(--third-family);
+  font-family: var(--font-ui);
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
@@ -25,11 +25,11 @@
 .btn:disabled {
   animation: none;
   pointer-events: none;
-  background-color: var(--txt-timer-3);
+  background-color: var(--txt-dim-3);
 }
 
 @keyframes glowing {
-  0% { opacity: 0.8; box-shadow: 0 0 3px var(--bg-highlight); }
-  50% { opacity: 1; box-shadow: 0 0 20px var(--bg-highlight); }
-  100% { opacity: 0.8; box-shadow: 0 0 3px var(--bg-highlight); }
+  0% { opacity: 0.8; box-shadow: 0 0 3px var(--color-brand-accent); }
+  50% { opacity: 1; box-shadow: 0 0 20px var(--color-brand-accent); }
+  100% { opacity: 0.8; box-shadow: 0 0 3px var(--color-brand-accent); }
 }

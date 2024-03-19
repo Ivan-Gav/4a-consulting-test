@@ -62,28 +62,29 @@
 }
 
 :root {
-  --font-family: "PT Root UI", sans-serif;
-  --second-family: "Bebas Neue Cyrillic", sans-serif;
-  --third-family: "Rubik", sans-serif;
-  --font3: "Bebas Neue", sans-serif;
+  --font-base: "PT Root UI", sans-serif;
+  --font-title: "Bebas Neue Cyrillic", sans-serif;
+  --font-ui: "Rubik", sans-serif;
+  --font-display: "Bebas Neue", sans-serif;
 
+  --color-brand: #01b9c5;
+  --color-brand-accent: #fd4d35;
+  
   --bg-main: #f5f7f7;
   --bg-accent: #ffffff;
-  --bg-highlight: #fd4d35;
-
+  
   --brdr-main: #d3d6dd;
   --brdr-divider: #e7eaf1;
   --brdr-input: #555965;
   
   --txt-main: #2d3242;
-  --txt-timer-1: #01b9c5;
-  --txt-timer-3: #818798;
   --txt-link: #2d97f9;
-  --txt-add: #ced1d8;
-  --txt-dim: #95979f;
-  --txt-dim-2: rgba(45,50,66,0.7);
+  --txt-dim: #ced1d8;
+  --txt-dim-2: #95979f;
+  --txt-dim-3: #818798; 
+  --txt-dim-4: rgba(45,50,66,0.7);
 
-  font-family: var(--font-family);
+  font-family: var(--font-base);
   font-weight: normal;
 
   background-color: var(--bg-main);
@@ -106,7 +107,7 @@
 }
 
 h1 {
-  font-family: var(--third-family);
+  font-family: var(--font-ui);
   font-weight: bold;
   font-size: 40px;
   line-height: 110%;

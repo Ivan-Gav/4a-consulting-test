@@ -47,8 +47,8 @@
   width: fit-content;
   padding-inline: 10px;
   height: 31px;
-  background: var(--txt-timer-1);
-  font-family: var(--font-family);
+  background: var(--color-brand);
+  font-family: var(--font-base);
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 0.02em;
@@ -73,7 +73,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 100vw;
-  color: var(--txt-add);
+  color: var(--txt-dim);
   cursor: pointer;
   transform: rotate(0);
   transition: transform, color;
@@ -91,7 +91,7 @@
 }
 
 .header {
-  font-family: var(--third-family);
+  font-family: var(--font-ui);
   font-weight: bold;
   font-size: 30px;
   text-transform: uppercase;
@@ -106,12 +106,12 @@
 }
 
 .highlight {
-  color: var(--txt-timer-1);
+  color: var(--color-brand);
 }
 
 .subheader,
 .cards_header {
-  font-family: var(--font-family);
+  font-family: var(--font-base);
   font-weight: 500;
   font-size: 24px;
   margin-bottom: 8px;
@@ -141,11 +141,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1.5px solid var(--txt-timer-1);
+  border: 1.5px solid var(--color-brand);
   border-radius: 30px;
   padding-inline: 30px;
   min-height: 59px;
-  font-family: var(--font-family);
+  font-family: var(--font-base);
   font-weight: bold;
   font-size: 24px;
   margin-bottom: 40px;

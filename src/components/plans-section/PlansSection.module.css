@@ -75,7 +75,7 @@
 }
 
 .legend {
-  font-family: var(--font-family);
+  font-family: var(--font-base);
   font-weight: 500;
   font-size: 18px;
   line-height: 130%;
@@ -87,11 +87,11 @@
 }
 
 .tc {
-  font-family: var(--font-family);
+  font-family: var(--font-base);
   font-weight: 400;
   font-size: 16px;
   line-height: 110%;
-  color: var(--txt-timer-3);
+  color: var(--txt-dim-3);
   margin-bottom: 50px;
   display: flex;
   align-items: center;
@@ -103,9 +103,9 @@
 }
 
 .consent {
-  font-family: var(--font-family);
+  font-family: var(--font-base);
   font-weight: 400;
   font-size: 14px;
   line-height: 130%;
-  color: var(--txt-timer-3);
+  color: var(--txt-dim-3);
 }
